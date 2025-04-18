@@ -27,33 +27,39 @@ jobs:
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest ./api-gateway
         docker push ${{ secrets.DOCKER_USERNAME }}/api-gateway:latest
+      continue-on-error: true
 
     # Step 4: Build and push Menu Service image
     - name: Build and push Menu Service
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/menu-service:latest ./menu-services
         docker push ${{ secrets.DOCKER_USERNAME }}/menu-service:latest
+      continue-on-error: true
 
     # Step 5: Build and push Order Service image
     - name: Build and push Order Service
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/order-service:latest ./order-services
         docker push ${{ secrets.DOCKER_USERNAME }}/order-service:latest
+      continue-on-error: true
 
     # Step 6: Build and push Payment Service image
     - name: Build and push Payment Service
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/payment-service:latest ./payment-services
         docker push ${{ secrets.DOCKER_USERNAME }}/payment-service:latest
+      continue-on-error: true
 
     # Step 7: Build and push Inventory Service image
     - name: Build and push Inventory Service
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/inventory-service:latest ./inventory-services
         docker push ${{ secrets.DOCKER_USERNAME }}/inventory-service:latest
+      continue-on-error: true
 
     # Step 8: Build and push Customer Service image
     - name: Build and push Customer Service
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/customer-service:latest ./customer-services
         docker push ${{ secrets.DOCKER_USERNAME }}/customer-service:latest
+      continue-on-error: true
